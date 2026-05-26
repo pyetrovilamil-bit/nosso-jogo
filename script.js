@@ -64,10 +64,10 @@ function mostrarCarta(){
     cartaJogador.familia;
 
   document.getElementById("ataqueJogador").textContent =
-    cartaJogador.ataque;
+    cartaJogador.protons;
 
   document.getElementById("defesaJogador").textContent =
-    cartaJogador.defesa;
+    cartaJogador.neutrons;
 
   document.getElementById("curiosidadeJogador").textContent =
     cartaJogador.curiosidade;
@@ -80,8 +80,15 @@ function esconderCartaMaquina(){
 
   document.getElementById("cartaMaquina").innerHTML =
   `
-    <h2>???</h2>
-    <p>Escolha um atributo</p>
+    <div class="raridade">
+      ???
+    </div>
+
+    <h2>${cartaMaquina.nome}</h2>
+
+    <p>⚛ Elemento Revelado</p>
+
+    <p>🔒 Informações ocultas</p>
   `;
 }
 
@@ -90,12 +97,34 @@ function revelarCartaMaquina(){
   document.getElementById("cartaMaquina").innerHTML =
   `
     <div class="raridade">
-      ???
+      ${cartaMaquina.raridade}
     </div>
 
     <h2>${cartaMaquina.nome}</h2>
 
-    <p>⚛ Elemento Revelado</p>
+    <p>⚛ Símbolo:
+      ${cartaMaquina.simbolo}
+    </p>
+
+    <p>🧪 Família:
+      ${cartaMaquina.familia}
+    </p>
+
+    <p>🔴 Prótons:
+      ${cartaMaquina.protons}
+    </p>
+
+    <p>⚪ Nêutrons:
+      ${cartaMaquina.neutrons}
+    </p>
+
+    <p>🔵 Elétrons:
+      ${cartaMaquina.eletrons}
+    </p>
+
+    <small>
+      ${cartaMaquina.curiosidade}
+    </small>
   `;
 }
 
