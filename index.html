@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Batalha dos Elementos</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <div id="telaInicial">
+
+    <h1>⚛️ BATALHA DOS ELEMENTOS ⚛️</h1>
+
+    <button onclick="iniciarJogo()">
+      JOGAR
+    </button>
+
+  </div>
+
+  <div id="jogo">
+
+    <header>
+
+      <h1>⚛️ BATALHA DOS ELEMENTOS ⚛️</h1>
+
+      <div class="placar">
+
+        <p>👤 Jogador:
+          <span id="pontosJogador">0</span>
+        </p>
+
+        <p>🤖 Máquina:
+          <span id="pontosMaquina">0</span>
+        </p>
+
+      </div>
+
+    </header>
+
+    <div class="area-jogo">
+
+      <div class="carta jogador" id="cartaJogador">
+
+        <div class="raridade" id="raridadeJogador">
+          COMUM
+        </div>
+
+        <h2 id="nomeJogador"></h2>
+
+        <p>⚛ Símbolo:
+          <span id="simboloJogador"></span>
+        </p>
+
+        <p>🔬 Número Atômico:
+          <span id="numeroJogador"></span>
+        </p>
+
+        <p>🧪 Família:
+          <span id="familiaJogador"></span>
+        </p>
+
+        <p>⚔ Ataque:
+          <span id="ataqueJogador"></span>
+        </p>
+
+        <p>🛡 Defesa:
+          <span id="defesaJogador"></span>
+        </p>
+
+        <p>📚 Curiosidade:</p>
+
+        <small id="curiosidadeJogador"></small>
+
+      </div>
+
+      <div class="vs">
+        VS
+      </div>
+
+      <div class="carta maquina" id="cartaMaquina">
+
+        <h2>???</h2>
+
+      </div>
+
+    </div>
+
+    <div class="botoes">
+
+      <button onclick="jogar('ataque')">
+        ⚔ ATAQUE
+      </button>
+
+      <button onclick="jogar('defesa')">
+        🛡 DEFESA
+      </button>
+
+      <button onclick="jogar('numero')">
+        🔬 NÚMERO
+      </button>
+
+    </div>
+
+    <h2 id="resultado"></h2>
+
+    <button class="proxima" onclick="novaRodada()">
+      Próxima Rodada
+    </button>
+
+  </div>
+
+  <script src="cartas.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
