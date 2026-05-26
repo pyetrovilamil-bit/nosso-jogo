@@ -74,6 +74,15 @@ function mostrarCarta(){
 
   document.getElementById("raridadeJogador").textContent =
     cartaJogador.raridade;
+
+  let nomeImagem =
+    cartaJogador.nome
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+  document.getElementById("imagemJogador").src =
+    `imagens/cartas/${nomeImagem}.png`;
 }
 
 function esconderCartaMaquina(){
@@ -87,37 +96,24 @@ function esconderCartaMaquina(){
 
 function revelarCartaMaquina(){
 
+  let nomeImagem =
+    cartaMaquina.nome
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+  document.getElementById("imagemMaquina").src =
+    `imagens/cartas/${nomeImagem}.png`;
+
   document.getElementById("cartaMaquina").innerHTML =
   `
     <div class="raridade">
-      ${cartaMaquina.raridade}
+      ???
     </div>
 
     <h2>${cartaMaquina.nome}</h2>
 
-    <p>⚛ Símbolo:
-      ${cartaMaquina.simbolo}
-    </p>
-
-    <p>🔬 Número:
-      ${cartaMaquina.numero}
-    </p>
-
-    <p>🧪 Família:
-      ${cartaMaquina.familia}
-    </p>
-
-    <p>⚔ Ataque:
-      ${cartaMaquina.ataque}
-    </p>
-
-    <p>🛡 Defesa:
-      ${cartaMaquina.defesa}
-    </p>
-
-    <small>
-      ${cartaMaquina.curiosidade}
-    </small>
+    <p>⚛ Elemento Revelado</p>
   `;
 }
 
