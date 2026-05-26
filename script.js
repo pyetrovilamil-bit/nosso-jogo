@@ -74,15 +74,6 @@ function mostrarCarta(){
 
   document.getElementById("raridadeJogador").textContent =
     cartaJogador.raridade;
-
-  let nomeImagem =
-    cartaJogador.nome
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-
-  document.getElementById("imagemJogador").src =
-    `imagens/cartas/${nomeImagem}.png`;
 }
 
 function esconderCartaMaquina(){
@@ -95,15 +86,6 @@ function esconderCartaMaquina(){
 }
 
 function revelarCartaMaquina(){
-
-  let nomeImagem =
-    cartaMaquina.nome
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-
-  document.getElementById("imagemMaquina").src =
-    `imagens/cartas/${nomeImagem}.png`;
 
   document.getElementById("cartaMaquina").innerHTML =
   `
