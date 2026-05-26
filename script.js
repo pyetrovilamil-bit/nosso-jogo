@@ -64,10 +64,10 @@ function mostrarCarta(){
     cartaJogador.familia;
 
   document.getElementById("ataqueJogador").textContent =
-    cartaJogador.protons;
+    cartaJogador.reatividade;
 
   document.getElementById("defesaJogador").textContent =
-    cartaJogador.neutrons;
+    cartaJogador.estabilidade;
 
   document.getElementById("curiosidadeJogador").textContent =
     cartaJogador.curiosidade;
@@ -110,16 +110,16 @@ function revelarCartaMaquina(){
       ${cartaMaquina.familia}
     </p>
 
-    <p>🔴 Prótons:
-      ${cartaMaquina.protons}
+    <p>⚡ Reatividade:
+      ${cartaMaquina.reatividade}
     </p>
 
-    <p>⚪ Nêutrons:
-      ${cartaMaquina.neutrons}
+    <p>🛡 Estabilidade:
+      ${cartaMaquina.estabilidade}
     </p>
 
-    <p>🔵 Elétrons:
-      ${cartaMaquina.eletrons}
+    <p>☢ Energia:
+      ${cartaMaquina.energia}
     </p>
 
     <small>
