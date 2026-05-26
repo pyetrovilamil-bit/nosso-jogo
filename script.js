@@ -4,6 +4,8 @@ let pontosMaquina = 0;
 let cartaJogador;
 let cartaMaquina;
 
+let deck = [];
+
 const somVitoria = new Audio("sons/vitoria.mp3");
 const somDerrota = new Audio("sons/derrota.mp3");
 const somClique = new Audio("sons/clique.mp3");
@@ -14,14 +16,37 @@ function iniciarJogo(){
 
   document.getElementById("jogo").style.display = "block";
 
+  criarDeck();
+
   novaRodada();
+}
+
+function criarDeck(){
+
+  deck = [...cartas];
+
+  embaralhar(deck);
+}
+
+function embaralhar(array){
+
+  for(let i = array.length - 1; i > 0; i--){
+
+    let j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] =
+    [array[j], array[i]];
+  }
 }
 
 function pegarCarta(){
 
-  return cartas[
-    Math.floor(Math.random() * cartas.length)
-  ];
+  if(deck.length === 0){
+
+    criarDeck();
+  }
+
+  return deck.pop();
 }
 
 function mostrarCarta(){
@@ -64,6 +89,10 @@ function revelarCartaMaquina(){
 
   document.getElementById("cartaMaquina").innerHTML =
   `
+    <div class="raridade">
+      ${cartaMaquina.raridade}
+    </div>
+
     <h2>${cartaMaquina.nome}</h2>
 
     <p>⚛ Símbolo:
@@ -111,8 +140,7 @@ function jogar(atributo){
     somVitoria.play();
 
     document.getElementById("resultado").textContent =
-      "🎉 VOCÊ GANHOU A RODADA!";
-
+      `🎉 ${cartaJogador.nome} venceu ${cartaMaquina.nome}!`;
   }
 
   else if(valorJogador < valorMaquina){
@@ -122,8 +150,7 @@ function jogar(atributo){
     somDerrota.play();
 
     document.getElementById("resultado").textContent =
-      "💀 VOCÊ PERDEU!";
-
+      `💀 ${cartaMaquina.nome} venceu ${cartaJogador.nome}!`;
   }
 
   else{
@@ -148,18 +175,32 @@ function atualizarPlacar(){
 
 function verificarFim(){
 
-  if(pontosJogador >= 5){
+  if(pontosJogador >= 10){
 
-    alert("🏆 VOCÊ VENCEU O JOGO!");
+    alert("🏆 VOCÊ GANHOU O JOGO!");
 
-    location.reload();
+    criarDeck();
+
+    pontosJogador = 0;
+    pontosMaquina = 0;
+
+    atualizarPlacar();
+
+    novaRodada();
   }
 
-  if(pontosMaquina >= 5){
+  if(pontosMaquina >= 10){
 
-    alert("🤖 A MÁQUINA VENCEU!");
+    alert("🤖 A MÁQUINA GANHOU!");
 
-    location.reload();
+    criarDeck();
+
+    pontosJogador = 0;
+    pontosMaquina = 0;
+
+    atualizarPlacar();
+
+    novaRodada();
   }
 }
 
@@ -168,6 +209,11 @@ function novaRodada(){
   cartaJogador = pegarCarta();
 
   cartaMaquina = pegarCarta();
+
+  while(cartaJogador.nome === cartaMaquina.nome){
+
+    cartaMaquina = pegarCarta();
+  }
 
   mostrarCarta();
 
