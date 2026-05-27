@@ -56,21 +56,24 @@ function balancearCarta(carta){
   return carta;
 }
 
-// ALTERADO: Agora mostra Nome, Camada de Valência, Raridade, Símbolo e Família como dicas iniciais
+// Força a exibição das DICAS (Nome, Valência, Símbolo, Família e Raridade) logo no início
 function mostrarCartaParcialJogador(){
+  console.log("Iniciando rodada com dicas ativas para:", cartaJogador.nome);
+  
+  // Dados visíveis (Dicas)
   document.getElementById("nomeJogador").textContent = cartaJogador.nome;
-  document.getElementById("numeroJogador").textContent = cartaJogador.ultimo; // Camada de Valência
-  document.getElementById("raridadeJogador").textContent = cartaJogador.raridade; // Raridade visível
-  document.getElementById("simboloJogador").textContent = cartaJogador.simbolo; // Símbolo visível
-  document.getElementById("familiaJogador").textContent = cartaJogador.familia; // Família visível
+  document.getElementById("numeroJogador").textContent = cartaJogador.ultimo; 
+  document.getElementById("simboloJogador").textContent = cartaJogador.simbolo; 
+  document.getElementById("familiaJogador").textContent = cartaJogador.familia; 
+  document.getElementById("raridadeJogador").textContent = cartaJogador.raridade; 
 
-  // Apenas os atributos de confronto direto começam ocultos
+  // Dados estritamente ocultos para o confronto
   document.getElementById("ataqueJogador").textContent = "???";
   document.getElementById("defesaJogador").textContent = "???";
   document.getElementById("curiosidadeJogador").textContent = "";
 }
 
-// Revela os atributos de combate que estavam ocultos (Reatividade e Estabilidade)
+// Revela apenas os atributos de duelo após o clique
 function revelarCartaJogador(){
   document.getElementById("ataqueJogador").textContent = cartaJogador.reatividade;
   document.getElementById("defesaJogador").textContent = cartaJogador.estabilidade;
