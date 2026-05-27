@@ -24,13 +24,6 @@ function criarDeck(){
   embaralhar(deck);
 }
 
-function grandfather(array){
-  // Função de embaralhar mantida idêntica
-  for(let i = array.length - 1; i > 0; i--){
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
 function embaralhar(array){
   for(let i = array.length - 1; i > 0; i--){
     let j = Math.floor(Math.random() * (i + 1));
@@ -63,7 +56,6 @@ function balancearCarta(carta){
   return carta;
 }
 
-// MODIFICADO: Remove totalmente as linhas de Reatividade e Estabilidade no início da rodada
 function mostrarCartaParcialJogador(){
   document.getElementById("nomeJogador").textContent = cartaJogador.nome;
   document.getElementById("numeroJogador").textContent = cartaJogador.ultimo; 
@@ -71,40 +63,37 @@ function mostrarCartaParcialJogador(){
   document.getElementById("familiaJogador").textContent = cartaJogador.familia; 
   document.getElementById("raridadeJogador").textContent = cartaJogador.raridade; 
 
-  // Esconde as linhas completas de combate para não aparecerem antes da hora
   document.getElementById("linhaReatividadeJogador").style.display = "none";
   document.getElementById("linhaEstabilidadeJogador").style.display = "none";
   document.getElementById("curiosidadeJogador").textContent = "";
 }
 
-// MODIFICADO: Faz as linhas reaparecerem preenchidas após a decisão do jogador
 function revelarCartaJogador(){
-  // Atribui os valores balanceados
   document.getElementById("ataqueJogador").textContent = cartaJogador.reatividade;
   document.getElementById("defesaJogador").textContent = cartaJogador.estabilidade;
   
-  // Torna as linhas visíveis novamente na estrutura da carta
   document.getElementById("linhaReatividadeJogador").style.display = "block";
   document.getElementById("linhaEstabilidadeJogador").style.display = "block";
   document.getElementById("curiosidadeJogador").textContent = cartaJogador.curiosidade || "";
 }
 
+// CORRIGIDO: Mostra apenas Raridade real, Nome e Símbolo (sem nenhuma linha com ???)
 function esconderCartaMaquina(){
-  document.getElementById("cartaMaquina").innerHTML = `
-    <div class="raridade">???</div>
-    <h2>${cartaMaquina.nome}</h2>
-  `;
+  document.getElementById("nomeMaquina").textContent = cartaMaquina.nome;
+  document.getElementById("simboloMaquina").textContent = cartaMaquina.simbolo; 
+  document.getElementById("raridadeMaquina").textContent = cartaMaquina.raridade; 
+  
+  // Limpa os dados secretos para o início do turno
+  document.getElementById("dadosSecretosMaquina").innerHTML = "";
 }
 
+// CORRIGIDO: Injeta o resto das informações após a jogada, mantendo o símbolo intacto acima
 function revelarCartaMaquina(){
-  document.getElementById("cartaMaquina").innerHTML = `
-    <div class="raridade">${cartaMaquina.raridade}</div>
-    <h2>${cartaMaquina.nome}</h2>
-    <p>⚛ Símbolo: ${cartaMaquina.simbolo}</p>
-    <p>🔬 CAMADA DE VALÊNCIA: ${cartaMaquina.ultimo}</p>
-    <p>🧪 FAMÍLIA: ${cartaMaquina.familia}</p>
-    <p>⚡ REATIVIDADE: ${cartaMaquina.reatividade}</p>
-    <p>🛡 ESTABILIDADE: ${cartaMaquina.estabilidade}</p>
+  document.getElementById("dadosSecretosMaquina").innerHTML = `
+    <p>🔬 CAMADA DE VALÊNCIA: <span>${cartaMaquina.ultimo}</span></p>
+    <p>🧪 FAMÍLIA: <span>${cartaMaquina.familia}</span></p>
+    <p>⚔⚡ REATIVIDADE: <span>${cartaMaquina.reatividade}</span></p>
+    <p>🛡 ESTABILIDADE: <span>${cartaMaquina.estabilidade}</span></p>
   `;
 }
 
@@ -116,7 +105,6 @@ function jogar(atributo){
   rodadaFinalizada = true;
   somClique.play();
 
-  // Revela os dados ocultos de combate de ambas as cartas
   revelarCartaJogador();
   revelarCartaMaquina();
 
