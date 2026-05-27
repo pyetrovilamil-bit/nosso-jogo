@@ -85,6 +85,33 @@ function mostrarCarta(){
     cartaJogador.nome;
 
   document.getElementById("simboloJogador").textContent =
+    "???";
+
+  document.getElementById("numeroJogador").textContent =
+    "???";
+
+  document.getElementById("familiaJogador").textContent =
+    "???";
+
+  document.getElementById("ataqueJogador").textContent =
+    "???";
+
+  document.getElementById("defesaJogador").textContent =
+    "???";
+
+  document.getElementById("curiosidadeJogador").textContent =
+    "";
+
+  document.getElementById("raridadeJogador").textContent =
+    "???";
+}
+
+function revelarCartaJogador(){
+
+  document.getElementById("nomeJogador").textContent =
+    cartaJogador.nome;
+
+  document.getElementById("simboloJogador").textContent =
     cartaJogador.simbolo;
 
   document.getElementById("numeroJogador").textContent =
@@ -98,9 +125,6 @@ function mostrarCarta(){
 
   document.getElementById("defesaJogador").textContent =
     cartaJogador.estabilidade;
-
-  document.getElementById("curiosidadeJogador").textContent =
-    "";
 
   document.getElementById("raridadeJogador").textContent =
     cartaJogador.raridade;
@@ -153,6 +177,8 @@ function jogar(atributo){
 
   somClique.play();
 
+  revelarCartaJogador();
+
   revelarCartaMaquina();
 
   let valorJogador =
@@ -190,6 +216,12 @@ function jogar(atributo){
   atualizarPlacar();
 
   verificarFim();
+
+  setTimeout(() => {
+
+    novaRodada();
+
+  }, 2500);
 }
 
 function atualizarPlacar(){
@@ -213,8 +245,6 @@ function verificarFim(){
     atualizarPlacar();
 
     criarDeck();
-
-    novaRodada();
   }
 
   if(pontosMaquina >= 10){
@@ -227,8 +257,6 @@ function verificarFim(){
     atualizarPlacar();
 
     criarDeck();
-
-    novaRodada();
   }
 }
 
