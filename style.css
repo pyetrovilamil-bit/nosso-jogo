@@ -4,7 +4,7 @@ body{
   font-family: Arial, Helvetica, sans-serif;
   background: #020617;
   color: white;
-  overflow: hidden; 
+  overflow: hidden; /* Mantém a tela travada sem rolagem */
 }
 
 #telaInicial{
@@ -22,21 +22,24 @@ body{
   animation: piscar 2s infinite;
 }
 
-
 #jogo {
   display: none;
   height: 100vh;
+  display: flex;
+  flex-direction: column; /* Alinha Header, Arena e Painel de botões em formato de coluna centralizada */
+  justify-content: space-between;
   box-sizing: border-box;
+  padding: 10px 0;
 }
 
 header{
   text-align: center;
-  padding: 10px 20px; 
+  width: 100%;
 }
 
 header h1 {
   margin: 5px 0;
-  font-size: 28px; 
+  font-size: 28px;
 }
 
 .placar{
@@ -51,30 +54,32 @@ header h1 {
   margin: 0;
 }
 
-
+/* Centraliza as duas cartas e o VS horizontalmente na tela */
 .area-jogo{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin-top: 10px;
+  flex-grow: 1; /* Faz a arena ocupar o espaço centralizado dinamicamente */
+  width: 100%;
 }
 
-
 .carta{
-  width: 280px;        
-  min-height: 340px;   
+  width: 280px;
+  min-height: 340px;
   background: #1e293b;
   border: 3px solid #38bdf8;
   border-radius: 25px;
-  padding: 15px;       
+  padding: 20px;
   position: relative;
   transition: 0.3s;
   box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  box-sizing: border-box;
+  text-align: left; /* Garante que os textos fiquem alinhados à esquerda dentro do quadrado */
 }
 
 .carta p {
-  margin: 12px 0;     
+  margin: 12px 0;
   font-size: 15px;
 }
 
@@ -84,8 +89,8 @@ header h1 {
 
 .raridade{
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   background: gold;
   color: black;
   padding: 4px 8px;
@@ -101,23 +106,26 @@ header h1 {
 }
 
 .vs{
-  font-size: 40px;     
+  font-size: 40px;
   font-weight: bold;
   color: #38bdf8;
 }
 
+/* CORRIGIDO: Garante que o painel de botões fique perfeitamente centralizado abaixo das cartas */
 .botoes{
-  text-align: center;
-  margin-top: 15px;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
 }
 
-
 button{
-  padding: 10px 20px;  
-  margin: 5px;         
+  padding: 10px 20px;
+  margin: 5px;
   border: none;
   border-radius: 12px;
-  font-size: 16px;     
+  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -130,15 +138,16 @@ button:hover{
   background: #22c55e;
   color: white;
   display: block;
-  margin: 10px auto;   
+  margin: 10px auto;
 }
 
 #resultado{
   text-align: center;
-  margin-top: 10px;    
+  margin: 10px 0;
   font-size: 20px;
   color: #facc15;
-  min-height: 30px;   
+  min-height: 30px;
+  width: 100%;
 }
 
 @keyframes piscar{
