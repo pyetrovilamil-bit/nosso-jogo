@@ -6,15 +6,19 @@ let cartaMaquina;
 
 let deck = [];
 
+let rodadaFinalizada = false;
+
 const somVitoria = new Audio("sons/vitoria.mp3");
 const somDerrota = new Audio("sons/derrota.mp3");
 const somClique = new Audio("sons/clique.mp3");
 
 function iniciarJogo(){
 
-  document.getElementById("telaInicial").style.display = "none";
+  document.getElementById("telaInicial").style.display =
+    "none";
 
-  document.getElementById("jogo").style.display = "block";
+  document.getElementById("jogo").style.display =
+    "block";
 
   criarDeck();
 
@@ -56,29 +60,20 @@ function balancearCarta(carta){
 
   if(tipo === 0){
 
-    carta.reatividade =
-      90;
-
-    carta.estabilidade =
-      40;
+    carta.reatividade = 90;
+    carta.estabilidade = 40;
   }
 
   else if(tipo === 1){
 
-    carta.reatividade =
-      45;
-
-    carta.estabilidade =
-      95;
+    carta.reatividade = 45;
+    carta.estabilidade = 95;
   }
 
   else{
 
-    carta.reatividade =
-      70;
-
-    carta.estabilidade =
-      70;
+    carta.reatividade = 70;
+    carta.estabilidade = 70;
   }
 
   return carta;
@@ -93,7 +88,7 @@ function mostrarCarta(){
     cartaJogador.simbolo;
 
   document.getElementById("numeroJogador").textContent =
-    cartaJogador.numero;
+    cartaJogador.ultimo;
 
   document.getElementById("familiaJogador").textContent =
     cartaJogador.familia;
@@ -105,7 +100,7 @@ function mostrarCarta(){
     cartaJogador.estabilidade;
 
   document.getElementById("curiosidadeJogador").textContent =
-    cartaJogador.curiosidade;
+    "";
 
   document.getElementById("raridadeJogador").textContent =
     cartaJogador.raridade;
@@ -133,16 +128,8 @@ function revelarCartaMaquina(){
 
     <h2>${cartaMaquina.nome}</h2>
 
-    <p>⚛ Símbolo:
-      ${cartaMaquina.simbolo}
-    </p>
-
-    <p>🔬 Número Atômico:
-      ${cartaMaquina.numero}
-    </p>
-
-    <p>🧪 Família:
-      ${cartaMaquina.familia}
+    <p>⚛ Último elemento:
+      ${cartaMaquina.ultimo}
     </p>
 
     <p>⚡ Reatividade:
@@ -152,14 +139,17 @@ function revelarCartaMaquina(){
     <p>🛡 Estabilidade:
       ${cartaMaquina.estabilidade}
     </p>
-
-    <small>
-      ${cartaMaquina.curiosidade}
-    </small>
   `;
 }
 
 function jogar(atributo){
+
+  if(rodadaFinalizada){
+
+    return;
+  }
+
+  rodadaFinalizada = true;
 
   somClique.play();
 
@@ -244,6 +234,8 @@ function verificarFim(){
 
 function novaRodada(){
 
+  rodadaFinalizada = false;
+
   cartaJogador =
     balancearCarta(pegarCarta());
 
@@ -260,5 +252,6 @@ function novaRodada(){
 
   esconderCartaMaquina();
 
-  document.getElementById("resultado").textContent = "";
+  document.getElementById("resultado").textContent =
+    "";
 }
