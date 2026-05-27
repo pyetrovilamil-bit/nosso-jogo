@@ -56,49 +56,43 @@ function balancearCarta(carta){
   return carta;
 }
 
-// MODIFICADO: Esta função agora deixa visível apenas o Nome e a Camada de Valência
 function mostrarCartaParcialJogador(){
-  // Informações que FICAM VISÍVEIS desde o início da rodada
   document.getElementById("nomeJogador").textContent = cartaJogador.nome;
-  document.getElementById("numeroJogador").textContent = cartaJogador.ultimo; // Camada de Valência
+  document.getElementById("numeroJogador").textContent = cartaJogador.ultimo; 
 
-  // Informações que começam ESCONDIDAS (???)
   document.getElementById("simboloJogador").textContent = "???";
   document.getElementById("familiaJogador").textContent = "???";
-  document.getElementById("ataqueJogador").textContent = "???"; // Reatividade
-  document.getElementById("defesaJogador").textContent = "???";  // Estabilidade
+  document.getElementById("ataqueJogador").textContent = "???";
+  document.getElementById("defesaJogador").textContent = "???";
   document.getElementById("raridadeJogador").textContent = "???";
   document.getElementById("curiosidadeJogador").textContent = "";
 }
 
-// MODIFICADO: Esta função revela o restante dos dados após o clique
 function revelarCartaJogador(){
-  // Revela o resto que estava oculto
   document.getElementById("simboloJogador").textContent = cartaJogador.simbolo;
   document.getElementById("familiaJogador").textContent = cartaJogador.familia;
   document.getElementById("ataqueJogador").textContent = cartaJogador.reatividade;
   document.getElementById("defesaJogador").textContent = cartaJogador.estabilidade;
   document.getElementById("raridadeJogador").textContent = cartaJogador.raridade;
+  document.getElementById("curiosidadeJogador").textContent = cartaJogador.curiosidade || "";
 }
 
 function esconderCartaMaquina(){
   document.getElementById("cartaMaquina").innerHTML = `
-    <div class="raridade">
-      ???
-    </div>
+    <div class="raridade">???</div>
     <h2>${cartaMaquina.nome}</h2>
   `;
 }
 
 function revelarCartaMaquina(){
   document.getElementById("cartaMaquina").innerHTML = `
-    <div class="raridade">
-      ${cartaMaquina.raridade}
-    </div>
+    <div class="raridade">${cartaMaquina.raridade}</div>
     <h2>${cartaMaquina.nome}</h2>
-    <p>⚛ Último elemento: ${cartaMaquina.ultimo}</p>
-    <p>⚡ Reatividade: ${cartaMaquina.reatividade}</p>
-    <p>🛡 Estabilidade: ${cartaMaquina.estabilidade}</p>
+    <p>⚛ Símbolo: ${cartaMaquina.simbolo}</p>
+    <p>🔬 CAMADA DE VALÊNCIA: ${cartaMaquina.ultimo}</p>
+    <p>🧪 FAMÍLIA: ${cartaMaquina.familia}</p>
+    <p>⚔⚡ REATIVIDADE: ${cartaMaquina.reatividade}</p>
+    <p>🛡 ESTABILIDADE: ${cartaMaquina.estabilidade}</p>
   `;
 }
 
@@ -110,9 +104,13 @@ function jogar(atributo){
   rodadaFinalizada = true;
   somClique.play();
 
-  // Revela o resto dos dados de ambas as cartas ao mesmo tempo
   revelarCartaJogador();
   revelarCartaMaquina();
+
+  // NOVO: Exibe o botão de "Próxima Rodada" apenas após o término da jogada
+  if(document.getElementById("botaoProxima")) {
+    document.getElementById("botaoProxima").style.display = "block";
+  }
 
   let valorJogador = cartaJogador[atributo];
   let valorMaquina = cartaMaquina[atributo];
@@ -134,10 +132,10 @@ function jogar(atributo){
   atualizarPlacar();
   verificarFim();
 
-  // MODIFICADO: Tempo alterado de 2500 para 10000 milissegundos (10 segundos)
+  // Mantém os 10 segundos automáticos caso o jogador não clique no botão
   setTimeout(() => {
     novaRodada();
-  }, 10000); 
+  }, 10000);
 }
 
 function atualizarPlacar(){
@@ -147,7 +145,7 @@ function atualizarPlacar(){
 
 function verificarFim(){
   if(pontosJogador >= 10){
-    alert("🏆 VOCÊ GANHOU!");
+    alert("🏆 VOCÊ GANHOU O JOGO!");
     pontosJogador = 0;
     pontosMaquina = 0;
     atualizarPlacar();
@@ -155,7 +153,7 @@ function verificarFim(){
   }
 
   if(pontosMaquina >= 10){
-    alert("🤖 A MÁQUINA GANHOU!");
+    alert("🤖 A MÁQUINA GANHOU O JOGO!");
     pontosJogador = 0;
     pontosMaquina = 0;
     atualizarPlacar();
@@ -166,6 +164,11 @@ function verificarFim(){
 function novaRodada(){
   rodadaFinalizada = false;
 
+  // NOVO: Esconde novamente o botão "Próxima Rodada" no início do novo turno
+  if(document.getElementById("botaoProxima")) {
+    document.getElementById("botaoProxima").style.display = "none";
+  }
+
   cartaJogador = balancearCarta(pegarCarta());
   cartaMaquina = balancearCarta(pegarCarta());
 
@@ -173,7 +176,6 @@ function novaRodada(){
     cartaMaquina = balancearCarta(pegarCarta());
   }
 
-  // Inicializa a rodada mostrando apenas os dados permitidos do jogador
   mostrarCartaParcialJogador();
   esconderCartaMaquina();
 
