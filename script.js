@@ -49,6 +49,41 @@ function pegarCarta(){
   return deck.pop();
 }
 
+function balancearCarta(carta){
+
+  let tipo =
+    Math.floor(Math.random() * 3);
+
+  if(tipo === 0){
+
+    carta.reatividade =
+      90;
+
+    carta.estabilidade =
+      40;
+  }
+
+  else if(tipo === 1){
+
+    carta.reatividade =
+      45;
+
+    carta.estabilidade =
+      95;
+  }
+
+  else{
+
+    carta.reatividade =
+      70;
+
+    carta.estabilidade =
+      70;
+  }
+
+  return carta;
+}
+
 function mostrarCarta(){
 
   document.getElementById("nomeJogador").textContent =
@@ -85,10 +120,6 @@ function esconderCartaMaquina(){
     </div>
 
     <h2>${cartaMaquina.nome}</h2>
-
-    <p>⚛ Elemento Revelado</p>
-
-    <p>🔒 Informações ocultas</p>
   `;
 }
 
@@ -106,6 +137,10 @@ function revelarCartaMaquina(){
       ${cartaMaquina.simbolo}
     </p>
 
+    <p>🔬 Número Atômico:
+      ${cartaMaquina.numero}
+    </p>
+
     <p>🧪 Família:
       ${cartaMaquina.familia}
     </p>
@@ -116,10 +151,6 @@ function revelarCartaMaquina(){
 
     <p>🛡 Estabilidade:
       ${cartaMaquina.estabilidade}
-    </p>
-
-    <p>☢ Energia:
-      ${cartaMaquina.energia}
     </p>
 
     <small>
@@ -184,14 +215,14 @@ function verificarFim(){
 
   if(pontosJogador >= 10){
 
-    alert("🏆 VOCÊ GANHOU O JOGO!");
-
-    criarDeck();
+    alert("🏆 VOCÊ GANHOU!");
 
     pontosJogador = 0;
     pontosMaquina = 0;
 
     atualizarPlacar();
+
+    criarDeck();
 
     novaRodada();
   }
@@ -200,12 +231,12 @@ function verificarFim(){
 
     alert("🤖 A MÁQUINA GANHOU!");
 
-    criarDeck();
-
     pontosJogador = 0;
     pontosMaquina = 0;
 
     atualizarPlacar();
+
+    criarDeck();
 
     novaRodada();
   }
@@ -213,13 +244,16 @@ function verificarFim(){
 
 function novaRodada(){
 
-  cartaJogador = pegarCarta();
+  cartaJogador =
+    balancearCarta(pegarCarta());
 
-  cartaMaquina = pegarCarta();
+  cartaMaquina =
+    balancearCarta(pegarCarta());
 
   while(cartaJogador.nome === cartaMaquina.nome){
 
-    cartaMaquina = pegarCarta();
+    cartaMaquina =
+      balancearCarta(pegarCarta());
   }
 
   mostrarCarta();
