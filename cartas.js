@@ -1,1419 +1,1183 @@
 const cartas = [
 
 {
-  nome:"Hidrogênio",
-  simbolo:"H",
-  numero:1,
-  reatividade:95,
-  estabilidade:20,
-  energia:40,
-  familia:"Não-metal",
-  raridade:"COMUM",
-  curiosidade:"Elemento mais abundante do universo"
-},
-
-{
-  nome:"Hélio",
-  simbolo:"He",
-  numero:2,
-  reatividade:5,
-  estabilidade:100,
-  energia:15,
-  familia:"Gás Nobre",
-  raridade:"COMUM",
-  curiosidade:"Usado em balões"
-},
-
-{
-  nome:"Lítio",
-  simbolo:"Li",
-  numero:3,
-  reatividade:90,
-  estabilidade:35,
-  energia:50,
-  familia:"Metal Alcalino",
-  raridade:"COMUM",
-  curiosidade:"Usado em baterias"
-},
-
-{
-  nome:"Berílio",
-  simbolo:"Be",
-  numero:4,
-  reatividade:45,
-  estabilidade:70,
-  energia:45,
-  familia:"Metal Alcalino-terroso",
-  raridade:"COMUM",
-  curiosidade:"Metal leve e resistente"
-},
-
-{
-  nome:"Boro",
-  simbolo:"B",
-  numero:5,
-  reatividade:40,
-  estabilidade:75,
-  energia:40,
-  familia:"Semimetal",
-  raridade:"COMUM",
-  curiosidade:"Usado em vidros resistentes"
-},
-
-{
-  nome:"Carbono",
-  simbolo:"C",
-  numero:6,
-  reatividade:60,
-  estabilidade:85,
-  energia:55,
-  familia:"Não-metal",
-  raridade:"RARO",
-  curiosidade:"Base da vida orgânica"
-},
-
-{
-  nome:"Nitrogênio",
-  simbolo:"N",
-  numero:7,
-  reatividade:25,
-  estabilidade:90,
-  energia:40,
-  familia:"Não-metal",
-  raridade:"COMUM",
-  curiosidade:"78% do ar atmosférico"
-},
-
-{
-  nome:"Oxigênio",
-  simbolo:"O",
-  numero:8,
-  reatividade:85,
-  estabilidade:65,
-  energia:70,
-  familia:"Calcogênios",
-  raridade:"COMUM",
-  curiosidade:"Essencial para respiração"
-},
-
-{
-  nome:"Flúor",
-  simbolo:"F",
-  numero:9,
-  reatividade:100,
-  estabilidade:40,
-  energia:85,
-  familia:"Halogênios",
-  raridade:"ÉPICO",
-  curiosidade:"Elemento mais reativo"
+nome:"Hidrogênio",
+simbolo:"H",
+ultimo:"1s1",
+reatividade:95,
+estabilidade:15,
+familia:"Não-metal",
+raridade:"COMUM"
 },
 
 {
-  nome:"Neônio",
-  simbolo:"Ne",
-  numero:10,
-  reatividade:1,
-  estabilidade:100,
-  energia:20,
-  familia:"Gás Nobre",
-  raridade:"COMUM",
-  curiosidade:"Usado em letreiros"
+nome:"Hélio",
+simbolo:"He",
+ultimo:"1s2",
+reatividade:5,
+estabilidade:100,
+familia:"Gás Nobre",
+raridade:"COMUM"
 },
 
 {
-  nome:"Sódio",
-  simbolo:"Na",
-  numero:11,
-  reatividade:95,
-  estabilidade:30,
-  energia:65,
-  familia:"Metal Alcalino",
-  raridade:"RARO",
-  curiosidade:"Explode em contato com água"
+nome:"Lítio",
+simbolo:"Li",
+ultimo:"2s1",
+reatividade:92,
+estabilidade:30,
+familia:"Metal Alcalino",
+raridade:"COMUM"
 },
 
 {
-  nome:"Magnésio",
-  simbolo:"Mg",
-  numero:12,
-  reatividade:70,
-  estabilidade:65,
-  energia:60,
-  familia:"Metal Alcalino-terroso",
-  raridade:"COMUM",
-  curiosidade:"Queima com chama branca"
+nome:"Berílio",
+simbolo:"Be",
+ultimo:"2s2",
+reatividade:45,
+estabilidade:80,
+familia:"Metal Alcalino-terroso",
+raridade:"COMUM"
 },
 
 {
-  nome:"Alumínio",
-  simbolo:"Al",
-  numero:13,
-  reatividade:40,
-  estabilidade:85,
-  energia:55,
-  familia:"Metal Representativo",
-  raridade:"COMUM",
-  curiosidade:"Muito usado em latas"
+nome:"Boro",
+simbolo:"B",
+ultimo:"2p1",
+reatividade:35,
+estabilidade:85,
+familia:"Semimetal",
+raridade:"COMUM"
 },
 
 {
-  nome:"Silício",
-  simbolo:"Si",
-  numero:14,
-  reatividade:35,
-  estabilidade:90,
-  energia:50,
-  familia:"Semimetal",
-  raridade:"RARO",
-  curiosidade:"Base dos chips eletrônicos"
+nome:"Carbono",
+simbolo:"C",
+ultimo:"2p2",
+reatividade:65,
+estabilidade:65,
+familia:"Não-metal",
+raridade:"RARO"
 },
 
 {
-  nome:"Fósforo",
-  simbolo:"P",
-  numero:15,
-  reatividade:80,
-  estabilidade:50,
-  energia:75,
-  familia:"Não-metal",
-  raridade:"RARO",
-  curiosidade:"Brilha no escuro"
+nome:"Nitrogênio",
+simbolo:"N",
+ultimo:"2p3",
+reatividade:20,
+estabilidade:95,
+familia:"Não-metal",
+raridade:"COMUM"
 },
 
 {
-  nome:"Enxofre",
-  simbolo:"S",
-  numero:16,
-  reatividade:70,
-  estabilidade:60,
-  energia:65,
-  familia:"Calcogênios",
-  raridade:"COMUM",
-  curiosidade:"Tem cheiro forte"
+nome:"Oxigênio",
+simbolo:"O",
+ultimo:"2p4",
+reatividade:88,
+estabilidade:55,
+familia:"Calcogênios",
+raridade:"RARO"
 },
 
 {
-  nome:"Cloro",
-  simbolo:"Cl",
-  numero:17,
-  reatividade:92,
-  estabilidade:45,
-  energia:80,
-  familia:"Halogênios",
-  raridade:"RARO",
-  curiosidade:"Usado em piscinas"
+nome:"Flúor",
+simbolo:"F",
+ultimo:"2p5",
+reatividade:100,
+estabilidade:20,
+familia:"Halogênios",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Argônio",
-  simbolo:"Ar",
-  numero:18,
-  reatividade:2,
-  estabilidade:100,
-  energia:25,
-  familia:"Gás Nobre",
-  raridade:"COMUM",
-  curiosidade:"Gás muito estável"
+nome:"Neônio",
+simbolo:"Ne",
+ultimo:"2p6",
+reatividade:1,
+estabilidade:100,
+familia:"Gás Nobre",
+raridade:"COMUM"
 },
 
 {
-  nome:"Potássio",
-  simbolo:"K",
-  numero:19,
-  reatividade:98,
-  estabilidade:25,
-  energia:80,
-  familia:"Metal Alcalino",
-  raridade:"ÉPICO",
-  curiosidade:"Reage violentamente com água"
+nome:"Sódio",
+simbolo:"Na",
+ultimo:"3s1",
+reatividade:95,
+estabilidade:25,
+familia:"Metal Alcalino",
+raridade:"RARO"
 },
 
 {
-  nome:"Cálcio",
-  simbolo:"Ca",
-  numero:20,
-  reatividade:75,
-  estabilidade:70,
-  energia:60,
-  familia:"Metal Alcalino-terroso",
-  raridade:"RARO",
-  curiosidade:"Importante para ossos"
+nome:"Magnésio",
+simbolo:"Mg",
+ultimo:"3s2",
+reatividade:70,
+estabilidade:65,
+familia:"Metal Alcalino-terroso",
+raridade:"COMUM"
 },
 
 {
-  nome:"Escândio",
-  simbolo:"Sc",
-  numero:21,
-  reatividade:45,
-  estabilidade:75,
-  energia:55,
-  familia:"Metal de Transição",
-  raridade:"COMUM",
-  curiosidade:"Usado em ligas metálicas"
+nome:"Alumínio",
+simbolo:"Al",
+ultimo:"3p1",
+reatividade:40,
+estabilidade:85,
+familia:"Metal Representativo",
+raridade:"COMUM"
 },
 
 {
-  nome:"Titânio",
-  simbolo:"Ti",
-  numero:22,
-  reatividade:35,
-  estabilidade:98,
-  energia:70,
-  familia:"Metal de Transição",
-  raridade:"ÉPICO",
-  curiosidade:"Muito resistente"
+nome:"Silício",
+simbolo:"Si",
+ultimo:"3p2",
+reatividade:35,
+estabilidade:90,
+familia:"Semimetal",
+raridade:"RARO"
 },
 
 {
-  nome:"Vanádio",
-  simbolo:"V",
-  numero:23,
-  reatividade:40,
-  estabilidade:82,
-  energia:68,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Usado em aço"
+nome:"Fósforo",
+simbolo:"P",
+ultimo:"3p3",
+reatividade:85,
+estabilidade:40,
+familia:"Não-metal",
+raridade:"RARO"
 },
 
 {
-  nome:"Cromo",
-  simbolo:"Cr",
-  numero:24,
-  reatividade:42,
-  estabilidade:90,
-  energia:72,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Dá brilho aos metais"
+nome:"Enxofre",
+simbolo:"S",
+ultimo:"3p4",
+reatividade:75,
+estabilidade:55,
+familia:"Calcogênios",
+raridade:"COMUM"
 },
 
 {
-  nome:"Manganês",
-  simbolo:"Mn",
-  numero:25,
-  reatividade:55,
-  estabilidade:78,
-  energia:70,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Usado em pilhas"
+nome:"Cloro",
+simbolo:"Cl",
+ultimo:"3p5",
+reatividade:92,
+estabilidade:35,
+familia:"Halogênios",
+raridade:"RARO"
 },
 
 {
-  nome:"Ferro",
-  simbolo:"Fe",
-  numero:26,
-  reatividade:50,
-  estabilidade:95,
-  energia:80,
-  familia:"Metal de Transição",
-  raridade:"ÉPICO",
-  curiosidade:"Muito usado na construção"
+nome:"Argônio",
+simbolo:"Ar",
+ultimo:"3p6",
+reatividade:2,
+estabilidade:100,
+familia:"Gás Nobre",
+raridade:"COMUM"
 },
 
 {
-  nome:"Cobalto",
-  simbolo:"Co",
-  numero:27,
-  reatividade:48,
-  estabilidade:82,
-  energia:78,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Usado em baterias"
+nome:"Potássio",
+simbolo:"K",
+ultimo:"4s1",
+reatividade:98,
+estabilidade:15,
+familia:"Metal Alcalino",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Níquel",
-  simbolo:"Ni",
-  numero:28,
-  reatividade:35,
-  estabilidade:90,
-  energia:72,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Muito resistente"
+nome:"Cálcio",
+simbolo:"Ca",
+ultimo:"4s2",
+reatividade:72,
+estabilidade:72,
+familia:"Metal Alcalino-terroso",
+raridade:"RARO"
 },
 
 {
-  nome:"Cobre",
-  simbolo:"Cu",
-  numero:29,
-  reatividade:38,
-  estabilidade:88,
-  energia:74,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Excelente condutor elétrico"
+nome:"Escândio",
+simbolo:"Sc",
+ultimo:"3d1",
+reatividade:55,
+estabilidade:70,
+familia:"Metal de Transição",
+raridade:"COMUM"
 },
 
 {
-  nome:"Zinco",
-  simbolo:"Zn",
-  numero:30,
-  reatividade:55,
-  estabilidade:75,
-  energia:60,
-  familia:"Metal de Transição",
-  raridade:"COMUM",
-  curiosidade:"Protege contra ferrugem"
+nome:"Titânio",
+simbolo:"Ti",
+ultimo:"3d2",
+reatividade:50,
+estabilidade:92,
+familia:"Metal de Transição",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Gálio",
-  simbolo:"Ga",
-  numero:31,
-  reatividade:45,
-  estabilidade:70,
-  energia:65,
-  familia:"Metal Representativo",
-  raridade:"RARO",
-  curiosidade:"Pode derreter na mão"
+nome:"Vanádio",
+simbolo:"V",
+ultimo:"3d3",
+reatividade:58,
+estabilidade:75,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Germânio",
-  simbolo:"Ge",
-  numero:32,
-  reatividade:40,
-  estabilidade:82,
-  energia:70,
-  familia:"Semimetal",
-  raridade:"RARO",
-  curiosidade:"Usado em semicondutores"
+nome:"Cromo",
+simbolo:"Cr",
+ultimo:"3d5",
+reatividade:60,
+estabilidade:82,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Arsênio",
-  simbolo:"As",
-  numero:33,
-  reatividade:68,
-  estabilidade:55,
-  energia:78,
-  familia:"Semimetal",
-  raridade:"ÉPICO",
-  curiosidade:"Elemento tóxico"
+nome:"Manganês",
+simbolo:"Mn",
+ultimo:"3d5",
+reatividade:65,
+estabilidade:72,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Selênio",
-  simbolo:"Se",
-  numero:34,
-  reatividade:62,
-  estabilidade:68,
-  energia:74,
-  familia:"Calcogênios",
-  raridade:"RARO",
-  curiosidade:"Usado em eletrônicos"
+nome:"Ferro",
+simbolo:"Fe",
+ultimo:"3d6",
+reatividade:68,
+estabilidade:88,
+familia:"Metal de Transição",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Bromo",
-  simbolo:"Br",
-  numero:35,
-  reatividade:88,
-  estabilidade:42,
-  energia:85,
-  familia:"Halogênios",
-  raridade:"ÉPICO",
-  curiosidade:"Único não-metal líquido"
+nome:"Cobalto",
+simbolo:"Co",
+ultimo:"3d7",
+reatividade:62,
+estabilidade:80,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Criptônio",
-  simbolo:"Kr",
-  numero:36,
-  reatividade:3,
-  estabilidade:100,
-  energia:30,
-  familia:"Gás Nobre",
-  raridade:"COMUM",
-  curiosidade:"Usado em lâmpadas especiais"
+nome:"Níquel",
+simbolo:"Ni",
+ultimo:"3d8",
+reatividade:58,
+estabilidade:85,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Rubídio",
-  simbolo:"Rb",
-  numero:37,
-  reatividade:99,
-  estabilidade:18,
-  energia:88,
-  familia:"Metal Alcalino",
-  raridade:"LENDÁRIO",
-  curiosidade:"Reage violentamente com água"
+nome:"Cobre",
+simbolo:"Cu",
+ultimo:"3d10",
+reatividade:55,
+estabilidade:90,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Estrôncio",
-  simbolo:"Sr",
-  numero:38,
-  reatividade:72,
-  estabilidade:66,
-  energia:68,
-  familia:"Metal Alcalino-terroso",
-  raridade:"RARO",
-  curiosidade:"Usado em fogos de artifício"
+nome:"Zinco",
+simbolo:"Zn",
+ultimo:"3d10",
+reatividade:52,
+estabilidade:82,
+familia:"Metal de Transição",
+raridade:"COMUM"
 },
 
 {
-  nome:"Ítrio",
-  simbolo:"Y",
-  numero:39,
-  reatividade:48,
-  estabilidade:80,
-  energia:72,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Usado em lasers"
+nome:"Gálio",
+simbolo:"Ga",
+ultimo:"4p1",
+reatividade:48,
+estabilidade:78,
+familia:"Metal Representativo",
+raridade:"RARO"
 },
 
 {
-  nome:"Zircônio",
-  simbolo:"Zr",
-  numero:40,
-  reatividade:35,
-  estabilidade:96,
-  energia:75,
-  familia:"Metal de Transição",
-  raridade:"ÉPICO",
-  curiosidade:"Muito resistente à corrosão"
+nome:"Germânio",
+simbolo:"Ge",
+ultimo:"4p2",
+reatividade:42,
+estabilidade:85,
+familia:"Semimetal",
+raridade:"RARO"
 },
 
 {
-  nome:"Nióbio",
-  simbolo:"Nb",
-  numero:41,
-  reatividade:38,
-  estabilidade:92,
-  energia:76,
-  familia:"Metal de Transição",
-  raridade:"ÉPICO",
-  curiosidade:"O Brasil possui grandes reservas"
+nome:"Arsênio",
+simbolo:"As",
+ultimo:"4p3",
+reatividade:72,
+estabilidade:45,
+familia:"Semimetal",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Molibdênio",
-  simbolo:"Mo",
-  numero:42,
-  reatividade:42,
-  estabilidade:90,
-  energia:78,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Usado em ligas metálicas"
+nome:"Selênio",
+simbolo:"Se",
+ultimo:"4p4",
+reatividade:68,
+estabilidade:58,
+familia:"Calcogênios",
+raridade:"RARO"
 },
 
 {
-  nome:"Tecnécio",
-  simbolo:"Tc",
-  numero:43,
-  reatividade:55,
-  estabilidade:50,
-  energia:88,
-  familia:"Metal de Transição",
-  raridade:"ÉPICO",
-  curiosidade:"Primeiro elemento artificial"
+nome:"Bromo",
+simbolo:"Br",
+ultimo:"4p5",
+reatividade:94,
+estabilidade:25,
+familia:"Halogênios",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Rutênio",
-  simbolo:"Ru",
-  numero:44,
-  reatividade:30,
-  estabilidade:94,
-  energia:80,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Usado em contatos elétricos"
+nome:"Criptônio",
+simbolo:"Kr",
+ultimo:"4p6",
+reatividade:3,
+estabilidade:100,
+familia:"Gás Nobre",
+raridade:"COMUM"
 },
 
 {
-  nome:"Ródio",
-  simbolo:"Rh",
-  numero:45,
-  reatividade:25,
-  estabilidade:98,
-  energia:82,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Metal extremamente raro"
+nome:"Rubídio",
+simbolo:"Rb",
+ultimo:"5s1",
+reatividade:99,
+estabilidade:10,
+familia:"Metal Alcalino",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Paládio",
-  simbolo:"Pd",
-  numero:46,
-  reatividade:28,
-  estabilidade:95,
-  energia:84,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Usado em catalisadores"
+nome:"Estrôncio",
+simbolo:"Sr",
+ultimo:"5s2",
+reatividade:75,
+estabilidade:68,
+familia:"Metal Alcalino-terroso",
+raridade:"RARO"
 },
 
 {
-  nome:"Prata",
-  simbolo:"Ag",
-  numero:47,
-  reatividade:35,
-  estabilidade:92,
-  energia:86,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Excelente condutor elétrico"
+nome:"Ítrio",
+simbolo:"Y",
+ultimo:"4d1",
+reatividade:55,
+estabilidade:76,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Cádmio",
-  simbolo:"Cd",
-  numero:48,
-  reatividade:50,
-  estabilidade:70,
-  energia:72,
-  familia:"Metal de Transição",
-  raridade:"RARO",
-  curiosidade:"Elemento tóxico"
+nome:"Zircônio",
+simbolo:"Zr",
+ultimo:"4d2",
+reatividade:45,
+estabilidade:95,
+familia:"Metal de Transição",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Índio",
-  simbolo:"In",
-  numero:49,
-  reatividade:45,
-  estabilidade:72,
-  energia:74,
-  familia:"Metal Representativo",
-  raridade:"RARO",
-  curiosidade:"Usado em telas touch"
+nome:"Nióbio",
+simbolo:"Nb",
+ultimo:"4d4",
+reatividade:58,
+estabilidade:82,
+familia:"Metal de Transição",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Estanho",
-  simbolo:"Sn",
-  numero:50,
-  reatividade:38,
-  estabilidade:88,
-  energia:76,
-  familia:"Metal Representativo",
-  raridade:"RARO",
-  curiosidade:"Usado em soldas"
+nome:"Molibdênio",
+simbolo:"Mo",
+ultimo:"4d5",
+reatividade:60,
+estabilidade:85,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Antimônio",
-  simbolo:"Sb",
-  numero:51,
-  reatividade:58,
-  estabilidade:65,
-  energia:82,
-  familia:"Semimetal",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em baterias"
+nome:"Tecnécio",
+simbolo:"Tc",
+ultimo:"4d5",
+reatividade:78,
+estabilidade:40,
+familia:"Metal de Transição",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Telúrio",
-  simbolo:"Te",
-  numero:52,
-  reatividade:60,
-  estabilidade:62,
-  energia:84,
-  familia:"Calcogênios",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em painéis solares"
+nome:"Rutênio",
+simbolo:"Ru",
+ultimo:"4d7",
+reatividade:52,
+estabilidade:88,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Iodo",
-  simbolo:"I",
-  numero:53,
-  reatividade:82,
-  estabilidade:58,
-  energia:86,
-  familia:"Halogênios",
-  raridade:"ÉPICO",
-  curiosidade:"Importante para a tireoide"
+nome:"Ródio",
+simbolo:"Rh",
+ultimo:"4d8",
+reatividade:40,
+estabilidade:96,
+familia:"Metal de Transição",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Xenônio",
-  simbolo:"Xe",
-  numero:54,
-  reatividade:4,
-  estabilidade:100,
-  energia:40,
-  familia:"Gás Nobre",
-  raridade:"RARO",
-  curiosidade:"Usado em flashes fotográficos"
+nome:"Paládio",
+simbolo:"Pd",
+ultimo:"4d10",
+reatividade:35,
+estabilidade:98,
+familia:"Metal de Transição",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Césio",
-  simbolo:"Cs",
-  numero:55,
-  reatividade:100,
-  estabilidade:10,
-  energia:95,
-  familia:"Metal Alcalino",
-  raridade:"LENDÁRIO",
-  curiosidade:"Um dos elementos mais reativos"
+nome:"Prata",
+simbolo:"Ag",
+ultimo:"4d10",
+reatividade:38,
+estabilidade:97,
+familia:"Metal de Transição",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Bário",
-  simbolo:"Ba",
-  numero:56,
-  reatividade:70,
-  estabilidade:68,
-  energia:75,
-  familia:"Metal Alcalino-terroso",
-  raridade:"RARO",
-  curiosidade:"Usado em exames médicos"
+nome:"Cádmio",
+simbolo:"Cd",
+ultimo:"4d10",
+reatividade:55,
+estabilidade:70,
+familia:"Metal de Transição",
+raridade:"RARO"
 },
 
 {
-  nome:"Lantânio",
-  simbolo:"La",
-  numero:57,
-  reatividade:55,
-  estabilidade:78,
-  energia:80,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em lentes especiais"
+nome:"Índio",
+simbolo:"In",
+ultimo:"5p1",
+reatividade:50,
+estabilidade:72,
+familia:"Metal Representativo",
+raridade:"RARO"
 },
 
 {
-  nome:"Cério",
-  simbolo:"Ce",
-  numero:58,
-  reatividade:62,
-  estabilidade:72,
-  energia:82,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em catalisadores"
+nome:"Estanho",
+simbolo:"Sn",
+ultimo:"5p2",
+reatividade:45,
+estabilidade:85,
+familia:"Metal Representativo",
+raridade:"RARO"
 },
 
 {
-  nome:"Praseodímio",
-  simbolo:"Pr",
-  numero:59,
-  reatividade:58,
-  estabilidade:75,
-  energia:84,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em ímãs"
+nome:"Antimônio",
+simbolo:"Sb",
+ultimo:"5p3",
+reatividade:70,
+estabilidade:55,
+familia:"Semimetal",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Neodímio",
-  simbolo:"Nd",
-  numero:60,
-  reatividade:60,
-  estabilidade:74,
-  energia:90,
-  familia:"Lantanídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Usado em superímãs"
+nome:"Telúrio",
+simbolo:"Te",
+ultimo:"5p4",
+reatividade:74,
+estabilidade:50,
+familia:"Calcogênios",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Promécio",
-  simbolo:"Pm",
-  numero:61,
-  reatividade:66,
-  estabilidade:45,
-  energia:92,
-  familia:"Lantanídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Elemento radioativo raro"
+nome:"Iodo",
+simbolo:"I",
+ultimo:"5p5",
+reatividade:88,
+estabilidade:32,
+familia:"Halogênios",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Samário",
-  simbolo:"Sm",
-  numero:62,
-  reatividade:58,
-  estabilidade:76,
-  energia:88,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em ímãs potentes"
+nome:"Xenônio",
+simbolo:"Xe",
+ultimo:"5p6",
+reatividade:4,
+estabilidade:100,
+familia:"Gás Nobre",
+raridade:"RARO"
 },
 
 {
-  nome:"Európio",
-  simbolo:"Eu",
-  numero:63,
-  reatividade:72,
-  estabilidade:58,
-  energia:90,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em telas luminosas"
+nome:"Césio",
+simbolo:"Cs",
+ultimo:"6s1",
+reatividade:100,
+estabilidade:5,
+familia:"Metal Alcalino",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Gadolínio",
-  simbolo:"Gd",
-  numero:64,
-  reatividade:54,
-  estabilidade:80,
-  energia:86,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em ressonância magnética"
+nome:"Bário",
+simbolo:"Ba",
+ultimo:"6s2",
+reatividade:78,
+estabilidade:65,
+familia:"Metal Alcalino-terroso",
+raridade:"RARO"
 },
 
 {
-  nome:"Térbio",
-  simbolo:"Tb",
-  numero:65,
-  reatividade:60,
-  estabilidade:74,
-  energia:88,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em lasers"
+nome:"Lantânio",
+simbolo:"La",
+ultimo:"5d1",
+reatividade:65,
+estabilidade:72,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Disprósio",
-  simbolo:"Dy",
-  numero:66,
-  reatividade:62,
-  estabilidade:72,
-  energia:90,
-  familia:"Lantanídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Usado em turbinas eólicas"
+nome:"Cério",
+simbolo:"Ce",
+ultimo:"4f1",
+reatividade:68,
+estabilidade:68,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Hólmio",
-  simbolo:"Ho",
-  numero:67,
-  reatividade:57,
-  estabilidade:75,
-  energia:89,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Possui forte magnetismo"
+nome:"Praseodímio",
+simbolo:"Pr",
+ultimo:"4f3",
+reatividade:66,
+estabilidade:70,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Érbio",
-  simbolo:"Er",
-  numero:68,
-  reatividade:52,
-  estabilidade:80,
-  energia:85,
-  familia:"Lantanídeos",
-  raridade:"ÉPICO",
-  curiosidade:"Usado em fibras ópticas"
+nome:"Neodímio",
+simbolo:"Nd",
+ultimo:"4f4",
+reatividade:70,
+estabilidade:66,
+familia:"Lantanídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Túlio",
-  simbolo:"Tm",
-  numero:69,
-  reatividade:50,
-  estabilidade:82,
-  energia:84,
-  familia:"Lantanídeos",
-  raridade:"RARO",
-  curiosidade:"Elemento muito raro"
+nome:"Promécio",
+simbolo:"Pm",
+ultimo:"4f5",
+reatividade:82,
+estabilidade:28,
+familia:"Lantanídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Itérbio",
-  simbolo:"Yb",
-  numero:70,
-  reatividade:48,
-  estabilidade:84,
-  energia:82,
-  familia:"Lantanídeos",
-  raridade:"RARO",
-  curiosidade:"Usado em lasers industriais"
+nome:"Samário",
+simbolo:"Sm",
+ultimo:"4f6",
+reatividade:64,
+estabilidade:72,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Lutécio",
-  simbolo:"Lu",
-  numero:71,
-  reatividade:45,
-  estabilidade:88,
-  energia:84,
-  familia:"Lantanídeos",
-  raridade:"RARO",
-  curiosidade:"Um dos elementos mais densos"
+nome:"Európio",
+simbolo:"Eu",
+ultimo:"4f7",
+reatividade:78,
+estabilidade:42,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Háfnio",
-  simbolo:"Hf",
-  numero:72,
-  reatividade:35,
-  estabilidade:98,
-  energia:88,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Resistente a altas temperaturas"
+nome:"Gadolínio",
+simbolo:"Gd",
+ultimo:"4f7",
+reatividade:60,
+estabilidade:80,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Tântalo",
-  simbolo:"Ta",
-  numero:73,
-  reatividade:28,
-  estabilidade:99,
-  energia:90,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Muito resistente à corrosão"
+nome:"Térbio",
+simbolo:"Tb",
+ultimo:"4f9",
+reatividade:62,
+estabilidade:76,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Tungstênio",
-  simbolo:"W",
-  numero:74,
-  reatividade:22,
-  estabilidade:100,
-  energia:95,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Maior ponto de fusão dos metais"
+nome:"Disprósio",
+simbolo:"Dy",
+ultimo:"4f10",
+reatividade:65,
+estabilidade:74,
+familia:"Lantanídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Rênio",
-  simbolo:"Re",
-  numero:75,
-  reatividade:30,
-  estabilidade:96,
-  energia:92,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Muito raro na Terra"
+nome:"Hólmio",
+simbolo:"Ho",
+ultimo:"4f11",
+reatividade:63,
+estabilidade:75,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Ósmio",
-  simbolo:"Os",
-  numero:76,
-  reatividade:20,
-  estabilidade:100,
-  energia:94,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Elemento mais denso conhecido"
+nome:"Érbio",
+simbolo:"Er",
+ultimo:"4f12",
+reatividade:58,
+estabilidade:82,
+familia:"Lantanídeos",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Irídio",
-  simbolo:"Ir",
-  numero:77,
-  reatividade:18,
-  estabilidade:100,
-  energia:96,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Extremamente resistente"
+nome:"Túlio",
+simbolo:"Tm",
+ultimo:"4f13",
+reatividade:54,
+estabilidade:84,
+familia:"Lantanídeos",
+raridade:"RARO"
 },
 
 {
-  nome:"Platina",
-  simbolo:"Pt",
-  numero:78,
-  reatividade:15,
-  estabilidade:100,
-  energia:98,
-  familia:"Metal de Transição",
-  raridade:"LENDÁRIO",
-  curiosidade:"Metal precioso valioso"
+nome:"Itérbio",
+simbolo:"Yb",
+ultimo:"4f14",
+reatividade:50,
+estabilidade:88,
+familia:"Lantanídeos",
+raridade:"RARO"
 },
 
 {
-  nome:"Ouro",
-  simbolo:"Au",
-  numero:79,
-  reatividade:10,
-  estabilidade:100,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Metal precioso muito valorizado"
+nome:"Lutécio",
+simbolo:"Lu",
+ultimo:"4f14",
+reatividade:48,
+estabilidade:90,
+familia:"Lantanídeos",
+raridade:"RARO"
 },
 
 {
-  nome:"Mercúrio",
-  simbolo:"Hg",
-  numero:80,
-  reatividade:58,
-  estabilidade:52,
-  energia:90,
-  familia:"Metal de Transição",
-  raridade:"ÉPICO",
-  curiosidade:"Único metal líquido"
+nome:"Háfnio",
+simbolo:"Hf",
+ultimo:"5d2",
+reatividade:42,
+estabilidade:96,
+familia:"Metal de Transição",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Tálio",
-  simbolo:"Tl",
-  numero:81,
-  reatividade:64,
-  estabilidade:48,
-  energia:88,
-  familia:"Metal Representativo",
-  raridade:"ÉPICO",
-  curiosidade:"Elemento altamente tóxico"
+nome:"Tântalo",
+simbolo:"Ta",
+ultimo:"5d3",
+reatividade:35,
+estabilidade:99,
+familia:"Metal de Transição",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Chumbo",
-  simbolo:"Pb",
-  numero:82,
-  reatividade:40,
-  estabilidade:90,
-  energia:92,
-  familia:"Metal Representativo",
-  raridade:"ÉPICO",
-  curiosidade:"Muito pesado e tóxico"
+nome:"Tungstênio",
+simbolo:"W",
+ultimo:"5d4",
+reatividade:25,
+estabilidade:100,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Bismuto",
-  simbolo:"Bi",
-  numero:83,
-  reatividade:42,
-  estabilidade:86,
-  energia:90,
-  familia:"Metal Representativo",
-  raridade:"ÉPICO",
-  curiosidade:"Forma cristais coloridos"
+nome:"Rênio",
+simbolo:"Re",
+ultimo:"5d5",
+reatividade:40,
+estabilidade:92,
+familia:"Metal de Transição",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Polônio",
-  simbolo:"Po",
-  numero:84,
-  reatividade:82,
-  estabilidade:20,
-  energia:98,
-  familia:"Calcogênios",
-  raridade:"MÍTICO",
-  curiosidade:"Altamente radioativo"
+nome:"Ósmio",
+simbolo:"Os",
+ultimo:"5d6",
+reatividade:20,
+estabilidade:100,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Astato",
-  simbolo:"At",
-  numero:85,
-  reatividade:90,
-  estabilidade:15,
-  energia:99,
-  familia:"Halogênios",
-  raridade:"MÍTICO",
-  curiosidade:"Um dos elementos mais raros"
+nome:"Irídio",
+simbolo:"Ir",
+ultimo:"5d7",
+reatividade:18,
+estabilidade:100,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Radônio",
-  simbolo:"Rn",
-  numero:86,
-  reatividade:5,
-  estabilidade:35,
-  energia:100,
-  familia:"Gás Nobre",
-  raridade:"MÍTICO",
-  curiosidade:"Gás radioativo perigoso"
+nome:"Platina",
+simbolo:"Pt",
+ultimo:"5d9",
+reatividade:15,
+estabilidade:100,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Frâncio",
-  simbolo:"Fr",
-  numero:87,
-  reatividade:100,
-  estabilidade:5,
-  energia:100,
-  familia:"Metal Alcalino",
-  raridade:"MÍTICO",
-  curiosidade:"Elemento mais reativo conhecido"
+nome:"Ouro",
+simbolo:"Au",
+ultimo:"5d10",
+reatividade:10,
+estabilidade:100,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Rádio",
-  simbolo:"Ra",
-  numero:88,
-  reatividade:88,
-  estabilidade:18,
-  energia:100,
-  familia:"Metal Alcalino-terroso",
-  raridade:"MÍTICO",
-  curiosidade:"Muito radioativo"
+nome:"Mercúrio",
+simbolo:"Hg",
+ultimo:"5d10",
+reatividade:60,
+estabilidade:45,
+familia:"Metal de Transição",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Actínio",
-  simbolo:"Ac",
-  numero:89,
-  reatividade:72,
-  estabilidade:28,
-  energia:98,
-  familia:"Actinídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Brilha no escuro"
+nome:"Tálio",
+simbolo:"Tl",
+ultimo:"6p1",
+reatividade:70,
+estabilidade:40,
+familia:"Metal Representativo",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Tório",
-  simbolo:"Th",
-  numero:90,
-  reatividade:68,
-  estabilidade:42,
-  energia:98,
-  familia:"Actinídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Pode gerar energia nuclear"
+nome:"Chumbo",
+simbolo:"Pb",
+ultimo:"6p2",
+reatividade:45,
+estabilidade:88,
+familia:"Metal Representativo",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Protactínio",
-  simbolo:"Pa",
-  numero:91,
-  reatividade:70,
-  estabilidade:35,
-  energia:99,
-  familia:"Actinídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Elemento raro e radioativo"
+nome:"Bismuto",
+simbolo:"Bi",
+ultimo:"6p3",
+reatividade:55,
+estabilidade:72,
+familia:"Metal Representativo",
+raridade:"ÉPICO"
 },
 
 {
-  nome:"Urânio",
-  simbolo:"U",
-  numero:92,
-  reatividade:82,
-  estabilidade:38,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Usado em energia nuclear"
+nome:"Polônio",
+simbolo:"Po",
+ultimo:"6p4",
+reatividade:90,
+estabilidade:18,
+familia:"Calcogênios",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Netúnio",
-  simbolo:"Np",
-  numero:93,
-  reatividade:78,
-  estabilidade:30,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Elemento artificial radioativo"
+nome:"Astato",
+simbolo:"At",
+ultimo:"6p5",
+reatividade:95,
+estabilidade:10,
+familia:"Halogênios",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Plutônio",
-  simbolo:"Pu",
-  numero:94,
-  reatividade:90,
-  estabilidade:20,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Usado em armas nucleares"
+nome:"Radônio",
+simbolo:"Rn",
+ultimo:"6p6",
+reatividade:5,
+estabilidade:85,
+familia:"Gás Nobre",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Amerício",
-  simbolo:"Am",
-  numero:95,
-  reatividade:76,
-  estabilidade:26,
-  energia:98,
-  familia:"Actinídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Usado em detectores de fumaça"
+nome:"Frâncio",
+simbolo:"Fr",
+ultimo:"7s1",
+reatividade:100,
+estabilidade:1,
+familia:"Metal Alcalino",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Cúrio",
-  simbolo:"Cm",
-  numero:96,
-  reatividade:75,
-  estabilidade:24,
-  energia:99,
-  familia:"Actinídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Muito radioativo"
+nome:"Rádio",
+simbolo:"Ra",
+ultimo:"7s2",
+reatividade:82,
+estabilidade:40,
+familia:"Metal Alcalino-terroso",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Berquélio",
-  simbolo:"Bk",
-  numero:97,
-  reatividade:72,
-  estabilidade:22,
-  energia:99,
-  familia:"Actinídeos",
-  raridade:"LENDÁRIO",
-  curiosidade:"Produzido artificialmente"
+nome:"Actínio",
+simbolo:"Ac",
+ultimo:"6d1",
+reatividade:72,
+estabilidade:55,
+familia:"Actinídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Califórnio",
-  simbolo:"Cf",
-  numero:98,
-  reatividade:74,
-  estabilidade:18,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Extremamente radioativo"
+nome:"Tório",
+simbolo:"Th",
+ultimo:"6d2",
+reatividade:68,
+estabilidade:62,
+familia:"Actinídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Einstênio",
-  simbolo:"Es",
-  numero:99,
-  reatividade:76,
-  estabilidade:15,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Nome em homenagem a Einstein"
+nome:"Protactínio",
+simbolo:"Pa",
+ultimo:"5f2",
+reatividade:78,
+estabilidade:45,
+familia:"Actinídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Férmio",
-  simbolo:"Fm",
-  numero:100,
-  reatividade:74,
-  estabilidade:14,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Produzido em laboratório"
+nome:"Urânio",
+simbolo:"U",
+ultimo:"5f3",
+reatividade:88,
+estabilidade:35,
+familia:"Actinídeos",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Mendelévio",
-  simbolo:"Md",
-  numero:101,
-  reatividade:72,
-  estabilidade:12,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Homenagem a Mendeleev"
+nome:"Netúnio",
+simbolo:"Np",
+ultimo:"5f4",
+reatividade:82,
+estabilidade:30,
+familia:"Actinídeos",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Nobélio",
-  simbolo:"No",
-  numero:102,
-  reatividade:70,
-  estabilidade:12,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Nome em homenagem a Nobel"
+nome:"Plutônio",
+simbolo:"Pu",
+ultimo:"5f6",
+reatividade:92,
+estabilidade:20,
+familia:"Actinídeos",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Laurêncio",
-  simbolo:"Lr",
-  numero:103,
-  reatividade:68,
-  estabilidade:10,
-  energia:100,
-  familia:"Actinídeos",
-  raridade:"MÍTICO",
-  curiosidade:"Elemento sintético"
+nome:"Amerício",
+simbolo:"Am",
+ultimo:"5f7",
+reatividade:80,
+estabilidade:35,
+familia:"Actinídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Rutherfórdio",
-  simbolo:"Rf",
-  numero:104,
-  reatividade:65,
-  estabilidade:8,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Muito instável"
+nome:"Cúrio",
+simbolo:"Cm",
+ultimo:"5f7",
+reatividade:76,
+estabilidade:42,
+familia:"Actinídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Dúbnio",
-  simbolo:"Db",
-  numero:105,
-  reatividade:66,
-  estabilidade:8,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Produzido artificialmente"
+nome:"Berquélio",
+simbolo:"Bk",
+ultimo:"5f9",
+reatividade:74,
+estabilidade:38,
+familia:"Actinídeos",
+raridade:"LENDÁRIO"
 },
 
 {
-  nome:"Seabórgio",
-  simbolo:"Sg",
-  numero:106,
-  reatividade:64,
-  estabilidade:7,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Nome em homenagem a Glenn Seaborg"
+nome:"Califórnio",
+simbolo:"Cf",
+ultimo:"5f10",
+reatividade:86,
+estabilidade:22,
+familia:"Actinídeos",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Bóhrio",
-  simbolo:"Bh",
-  numero:107,
-  reatividade:63,
-  estabilidade:7,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Muito radioativo"
+nome:"Einstênio",
+simbolo:"Es",
+ultimo:"5f11",
+reatividade:84,
+estabilidade:18,
+familia:"Actinídeos",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Hássio",
-  simbolo:"Hs",
-  numero:108,
-  reatividade:62,
-  estabilidade:6,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Elemento sintético raro"
+nome:"Férmio",
+simbolo:"Fm",
+ultimo:"5f12",
+reatividade:82,
+estabilidade:16,
+familia:"Actinídeos",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Meitnério",
-  simbolo:"Mt",
-  numero:109,
-  reatividade:60,
-  estabilidade:5,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Existe por poucos segundos"
+nome:"Mendelévio",
+simbolo:"Md",
+ultimo:"5f13",
+reatividade:78,
+estabilidade:15,
+familia:"Actinídeos",
+raridade:"MÍTICO"
 },
 
 {
-  nome:"Darmstádio",
-  simbolo:"Ds",
-  numero:110,
-  reatividade:58,
-  estabilidade:5,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Criado em laboratório"
-},
-
-{
-  nome:"Roentgênio",
-  simbolo:"Rg",
-  numero:111,
-  reatividade:57,
-  estabilidade:4,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Elemento superpesado"
-},
-
-{
-  nome:"Copernício",
-  simbolo:"Cn",
-  numero:112,
-  reatividade:55,
-  estabilidade:4,
-  energia:100,
-  familia:"Metal de Transição",
-  raridade:"MÍTICO",
-  curiosidade:"Muito instável"
-},
-
-{
-  nome:"Nihônio",
-  simbolo:"Nh",
-  numero:113,
-  reatividade:54,
-  estabilidade:3,
-  energia:100,
-  familia:"Metal Representativo",
-  raridade:"MÍTICO",
-  curiosidade:"Elemento sintético japonês"
-},
-
-{
-  nome:"Fleróvio",
-  simbolo:"Fl",
-  numero:114,
-  reatividade:52,
-  estabilidade:3,
-  energia:100,
-  familia:"Metal Representativo",
-  raridade:"MÍTICO",
-  curiosidade:"Extremamente instável"
-},
-
-{
-  nome:"Moscóvio",
-  simbolo:"Mc",
-  numero:115,
-  reatividade:53,
-  estabilidade:2,
-  energia:100,
-  familia:"Metal Representativo",
-  raridade:"MÍTICO",
-  curiosidade:"Criado artificialmente"
-},
-
-{
-  nome:"Livermório",
-  simbolo:"Lv",
-  numero:116,
-  reatividade:50,
-  estabilidade:2,
-  energia:100,
-  familia:"Calcogênios",
-  raridade:"MÍTICO",
-  curiosidade:"Elemento superpesado"
-},
-
-{
-  nome:"Tenessino",
-  simbolo:"Ts",
-  numero:117,
-  reatividade:85,
-  estabilidade:1,
-  energia:100,
-  familia:"Halogênios",
-  raridade:"MÍTICO",
-  curiosidade:"Muito raro e radioativo"
-},
-
-{
-  nome:"Oganessônio",
-  simbolo:"Og",
-  numero:118,
-  reatividade:15,
-  estabilidade:1,
-  energia:100,
-  familia:"Gás Nobre",
-  raridade:"MÍTICO",
-  curiosidade:"Último elemento da tabela periódica"
+nome:"Nobélio",
+simbolo:"No",
+ultimo:"5f14",
+reatividade:70,
+estabilidade:20,
+familia:"Actinídeos",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Laurêncio",
+simbolo:"Lr",
+ultimo:"7p1",
+reatividade:68,
+estabilidade:25,
+familia:"Actinídeos",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Rutherfórdio",
+simbolo:"Rf",
+ultimo:"6d2",
+reatividade:62,
+estabilidade:40,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Dúbnio",
+simbolo:"Db",
+ultimo:"6d3",
+reatividade:66,
+estabilidade:35,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Seabórgio",
+simbolo:"Sg",
+ultimo:"6d4",
+reatividade:64,
+estabilidade:38,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Bóhrio",
+simbolo:"Bh",
+ultimo:"6d5",
+reatividade:70,
+estabilidade:30,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Hássio",
+simbolo:"Hs",
+ultimo:"6d6",
+reatividade:58,
+estabilidade:45,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Meitnério",
+simbolo:"Mt",
+ultimo:"6d7",
+reatividade:60,
+estabilidade:42,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Darmstádio",
+simbolo:"Ds",
+ultimo:"6d8",
+reatividade:56,
+estabilidade:48,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Roentgênio",
+simbolo:"Rg",
+ultimo:"6d9",
+reatividade:54,
+estabilidade:50,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Copernício",
+simbolo:"Cn",
+ultimo:"6d10",
+reatividade:40,
+estabilidade:60,
+familia:"Metal de Transição",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Nihônio",
+simbolo:"Nh",
+ultimo:"7p1",
+reatividade:72,
+estabilidade:28,
+familia:"Metal Representativo",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Fleróvio",
+simbolo:"Fl",
+ultimo:"7p2",
+reatividade:48,
+estabilidade:55,
+familia:"Metal Representativo",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Moscóvio",
+simbolo:"Mc",
+ultimo:"7p3",
+reatividade:80,
+estabilidade:18,
+familia:"Metal Representativo",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Livermório",
+simbolo:"Lv",
+ultimo:"7p4",
+reatividade:84,
+estabilidade:15,
+familia:"Calcogênios",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Tenessino",
+simbolo:"Ts",
+ultimo:"7p5",
+reatividade:98,
+estabilidade:5,
+familia:"Halogênios",
+raridade:"MÍTICO"
+},
+
+{
+nome:"Oganessônio",
+simbolo:"Og",
+ultimo:"7p6",
+reatividade:2,
+estabilidade:100,
+familia:"Gás Nobre",
+raridade:"MÍTICO"
 },
 
 ];
