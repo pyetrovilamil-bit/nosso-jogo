@@ -56,28 +56,26 @@ function balancearCarta(carta){
   return carta;
 }
 
-// ALTERADO: Agora esta função esconde os dados do jogador no início da rodada
-function esconderCartaJogador(){
+// MODIFICADO: Esta função agora deixa visível apenas o Nome e a Camada de Valência
+function mostrarCartaParcialJogador(){
+  // Informações que FICAM VISÍVEIS desde o início da rodada
   document.getElementById("nomeJogador").textContent = cartaJogador.nome;
+  document.getElementById("numeroJogador").textContent = cartaJogador.ultimo; // Camada de Valência
+
+  // Informações que começam ESCONDIDAS (???)
   document.getElementById("simboloJogador").textContent = "???";
-  document.getElementById("numeroJogador").textContent = "???";
   document.getElementById("familiaJogador").textContent = "???";
-  
-  // Mostra apenas os nomes dos atributos nos botões/textos, sem os valores numéricos
-  document.getElementById("ataqueJogador").textContent = "???";
-  document.getElementById("defesaJogador").textContent = "???";
-  
-  document.getElementById("curiosidadeJogador").textContent = "";
+  document.getElementById("ataqueJogador").textContent = "???"; // Reatividade
+  document.getElementById("defesaJogador").textContent = "???";  // Estabilidade
   document.getElementById("raridadeJogador").textContent = "???";
+  document.getElementById("curiosidadeJogador").textContent = "";
 }
 
+// MODIFICADO: Esta função revela o restante dos dados após o clique
 function revelarCartaJogador(){
-  document.getElementById("nomeJogador").textContent = cartaJogador.nome;
+  // Revela o resto que estava oculto
   document.getElementById("simboloJogador").textContent = cartaJogador.simbolo;
-  document.getElementById("numeroJogador").textContent = cartaJogador.ultimo;
   document.getElementById("familiaJogador").textContent = cartaJogador.familia;
-  
-  // Revela os valores reais que foram balanceados para a rodada
   document.getElementById("ataqueJogador").textContent = cartaJogador.reatividade;
   document.getElementById("defesaJogador").textContent = cartaJogador.estabilidade;
   document.getElementById("raridadeJogador").textContent = cartaJogador.raridade;
@@ -98,7 +96,7 @@ function revelarCartaMaquina(){
       ${cartaMaquina.raridade}
     </div>
     <h2>${cartaMaquina.nome}</h2>
-    <p>⚛ Camada de valência: ${cartaMaquina.ultimo}</p>
+    <p>⚛ Último elemento: ${cartaMaquina.ultimo}</p>
     <p>⚡ Reatividade: ${cartaMaquina.reatividade}</p>
     <p>🛡 Estabilidade: ${cartaMaquina.estabilidade}</p>
   `;
@@ -112,7 +110,7 @@ function jogar(atributo){
   rodadaFinalizada = true;
   somClique.play();
 
-  // AMBAS as cartas são reveladas aqui, no momento do clique
+  // Revela o resto dos dados de ambas as cartas ao mesmo tempo
   revelarCartaJogador();
   revelarCartaMaquina();
 
@@ -136,9 +134,10 @@ function jogar(atributo){
   atualizarPlacar();
   verificarFim();
 
+  // MODIFICADO: Tempo alterado de 2500 para 10000 milissegundos (10 segundos)
   setTimeout(() => {
     novaRodada();
-  }, 2500);
+  }, 10000); 
 }
 
 function atualizarPlacar(){
@@ -174,8 +173,8 @@ function novaRodada(){
     cartaMaquina = balancearCarta(pegarCarta());
   }
 
-  // ALTERADO: Agora chama a função de esconder o jogador
-  esconderCartaJogador();
+  // Inicializa a rodada mostrando apenas os dados permitidos do jogador
+  mostrarCartaParcialJogador();
   esconderCartaMaquina();
 
   document.getElementById("resultado").textContent = "";
