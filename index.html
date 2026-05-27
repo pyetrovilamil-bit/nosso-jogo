@@ -30,7 +30,7 @@
         <p>🔬 CAMADA DE VALÊNCIA: <span id="numeroJogador"></span></p>
         <p>🧪 FAMÍLIA: <span id="familiaJogador"></span></p>
         
-        <p id="linhaReatividadeJogador">⚔⚡ REATIVIDADE: <span id="ataqueJogador"></span></p>
+        <p id="linhaReatividadeJogador">⚡ REATIVIDADE: <span id="ataqueJogador"></span></p>
         <p id="linhaEstabilidadeJogador">🛡 ESTABILIDADE: <span id="defesaJogador"></span></p>
         
         <small id="curiosidadeJogador"></small>
@@ -47,17 +47,19 @@
       </div>
     </div>
 
-    <div class="botoes">
-      <button onclick="jogar('reatividade')">⚡ REATIVIDADE</button>
-      <button onclick="jogar('estabilidade')">🛡 ESTABILIDADE</button>
-      <button onclick="jogar('ultimo')">⚛ CAMADA DE VALÊNCIA</button>
+    <div class="painel-inferior">
+      <div class="botoes">
+        <button onclick="jogar('reatividade')">⚡ REATIVIDADE</button>
+        <button onclick="jogar('estabilidade')">🛡 ESTABILIDADE</button>
+        <button onclick="jogar('ultimo')">⚛ CAMADA DE VALÊNCIA</button>
+      </div>
+
+      <h2 id="resultado"></h2>
+
+      <button class="proxima" id="botaoProxima" style="display: none;" onclick="novaRodada()">
+        Próxima Rodada
+      </button>
     </div>
-
-    <h2 id="resultado"></h2>
-
-    <button class="proxima" id="botaoProxima" style="display: none;" onclick="novaRodada()">
-      Próxima Rodada
-    </button>
   </div>
 
   <script src="cartas.js"></script>
