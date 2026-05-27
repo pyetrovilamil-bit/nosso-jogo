@@ -97,6 +97,7 @@ function revelarCartaMaquina(){
 }
 
 function jogar(atributo){
+  // Trava para impedir que cliques repetidos na mesma rodada buguem o placar
   if(rodadaFinalizada){
     return;
   }
@@ -107,7 +108,7 @@ function jogar(atributo){
   revelarCartaJogador();
   revelarCartaMaquina();
 
-  // NOVO: Exibe o botão de "Próxima Rodada" apenas após o término da jogada
+  // Torna o botão "Próxima Rodada" visível apenas AGORA que a rodada foi jogada
   if(document.getElementById("botaoProxima")) {
     document.getElementById("botaoProxima").style.display = "block";
   }
@@ -131,11 +132,8 @@ function jogar(atributo){
 
   atualizarPlacar();
   verificarFim();
-
-  // Mantém os 10 segundos automáticos caso o jogador não clique no botão
-  setTimeout(() => {
-    novaRodada();
-  }, 10000);
+  
+  // REMOVIDO: O setTimeout antigo que forçava a passar em 10 segundos foi deletado daqui.
 }
 
 function atualizarPlacar(){
@@ -162,9 +160,15 @@ function verificarFim(){
 }
 
 function novaRodada(){
+  // SEGURANÇA: Se a rodada atual não tiver sido finalizada (ou seja, o jogador não escolheu um atributo),
+  // ele não consegue avançar mesmo se tentar forçar o clique.
+  if(!rodadaFinalizada && pontosJogador !== 0 && pontosMaquina !== 0) {
+    return;
+  }
+
   rodadaFinalizada = false;
 
-  // NOVO: Esconde novamente o botão "Próxima Rodada" no início do novo turno
+  // Esconde o botão novamente para a nova rodada iniciar travada
   if(document.getElementById("botaoProxima")) {
     document.getElementById("botaoProxima").style.display = "none";
   }
